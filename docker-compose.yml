@@ -6,6 +6,10 @@ services:
       context: ./containers/mongodb
     container_name: mongo_db
     restart: always
+    command:
+      - '--auth'
+      - '-f'
+      - '/etc/mongod.conf'
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
